@@ -1,0 +1,11 @@
+{#
+  #JOE#
+  Port from custom, for coustom metadata fields
+#}
+{% macro custom_meta(name, id='', key='', value='', error="", classes=[], is_required=false) %}
+  {%- set extra_html = caller() if caller -%}
+  {% call input_block(id +'-value' or name, key or name, error, classes, extra_html=extra_html, is_required=is_required) %}
+    <input id="{{ id or name }}-value" type="text" name="{{ name }}value" value="{{ value | empty_and_escape }}" placeholder="{{ placeholder }}" />
+    <input id="{{ id or name }}-key" type="hidden" name="{{ name }}key" value="{{ key | empty_and_escape }}" />
+  {% endcall %}
+{% endmacro %}

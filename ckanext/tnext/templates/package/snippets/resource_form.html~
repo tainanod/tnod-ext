@@ -1,0 +1,36 @@
+{% ckan_extends %}
+
+{% block basic_fields_name %}
+  {{ form.input('name', id='field-name', label='資料名稱', placeholder=_('eg. January 2011 Gold Prices'), value=data.name, error=errors.name, classes=['control-full']) }}
+{% endblock %}
+
+{% block basic_fields_description %}
+  {{ form.markdown('description', id='field-description', label='主要欄位說明', placeholder=_('Some useful notes about the data'), value=data.description, error=errors.description) }}
+{% endblock %}
+
+{% block basic_fields_format %}
+  {% set format_attrs = {'data-module': 'autocomplete', 'data-module-source': '/api/2/util/resource/format_autocomplete?incomplete=?'} %}
+  {% call form.input('format', id='field-format', label='檔案格式', placeholder=_('eg. CSV, XML or JSON'), value=data.format, error=errors.format, classes=['control-medium'], attrs=format_attrs) %}
+  {% endcall %}
+
+  {{ form.input('extras0', id='field-extras0', label='編碼格式', placeholder='', value=data.extras0, error=errors.extras0, classes=['control-medium']) }}
+  <hr/>
+  {{ form.input('extras1', id='field-extras1', label='資料發布日期', placeholder='', value=data.extras1, error=errors.extras1, classes=['control-medium', 'dpicker']) }}
+  {{ form.input('extras2', id='field-extras2', label='最後更新日期', placeholder='', value=data.extras2, error=errors.extras2, classes=['control-medium', 'dpicker']) }}
+  {{ form.input('extras3', id='field-extras3', label='未來更新日期', placeholder='', value=data.extras3, error=errors.extras3, classes=['control-medium', 'dpicker']) }}
+  <hr/>
+  {{ form.input('extras4', id='field-extras4', label='空間範圍概述', placeholder='', value=data.extras4, error=errors.extras4, classes=['control-medium']) }}
+  {{ form.input('extras5', id='field-extras5', label='地理坐標系統', placeholder='', value=data.extras5, error=errors.extras5, classes=['control-medium']) }}
+  {{ form.input('extras6', id='field-extras6', label='空間範圍坐標-右', placeholder='', value=data.extras6, error=errors.extras6, classes=['control-medium']) }}
+  {{ form.input('extras7', id='field-extras7', label='空間範圍坐標-上', placeholder='', value=data.extras7, error=errors.extras7, classes=['control-medium']) }}
+  {{ form.input('extras8', id='field-extras8', label='空間範圍坐標-下', placeholder='', value=data.extras8, error=errors.extras8, classes=['control-medium']) }}
+  {{ form.input('extras9', id='field-extras9', label='空間範圍坐標-左', placeholder='', value=data.extras9, error=errors.extras9, classes=['control-medium']) }}
+
+{% resource 'example_theme/js/favorite.js' %}
+{% resource 'example_theme/js/bootstrap-datepicker.js' %}
+{% resource 'example_theme/css/datepicker.css' %}
+
+{% endblock %}
+
+
+

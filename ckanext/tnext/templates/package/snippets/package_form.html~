@@ -1,0 +1,9 @@
+{% ckan_extends %}
+
+{% block basic_fields %}
+  {% snippet 'package/snippets/package_basic_fields.html', data=data, errors=errors, licenses=c.licenses, groups_available=c.groups_available, metacache=false %}
+  {% resource 'tnext_jscss/js/favorite.js' %}
+  {% resource 'tnext_jscss/js/bootstrap-datepicker.js' %}
+  {% resource 'tnext_jscss/css/datepicker.css' %}
+{% endblock %}
+

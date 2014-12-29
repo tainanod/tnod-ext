@@ -1,0 +1,7 @@
+syntax: glob
+*.pyc
+*.py~
+*.egg-info
+
+
+ckanext_tnext.egg-info/*
