@@ -22,7 +22,7 @@
           </thead>
           <tbody>
             {% set notin = ['default','logged_in','visitor']%}
-            {% for user in c.users %}
+            {% for user in c.page.items %}
               {% if user.name not in notin %}
               <tr >
                 <td class="metric">{{ user.name }}</td>
